@@ -2,6 +2,7 @@ import Usuario from "../models/Usuario.js";
 import emailRegistro from "../helper/emailRegistro.js";
 import generarJWT from "../helper/generarJWT.js";
 import emailOlvidePassword from "../helper/emailOlvidePassword.js";
+
 const prueba = (req, res) => {
     res.send({
         msg: "En esta ruta gestionaremos todas las peticiones correspondiente al modelo de Usuario"
