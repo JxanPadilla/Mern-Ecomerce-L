@@ -42,7 +42,7 @@ const VentaProvider = ({ children }) => {
         }
 
         setVentaState(infArticulo)
-        // console.log(infArticulo);
+         //console.log(infArticulo);
         // Revisa si un elemento ya existe en el carrito
         let exist
         articulosCarritos.find(item => infArticulo.inf._id === item.inf._id ? exist = true : exist=false)
@@ -53,6 +53,7 @@ const VentaProvider = ({ children }) => {
                     articulo.cantidad++; // Retorna el objeto actualizado
                     articulo.subtotal = articulo.cantidad * articulo.inf.precio
                 }
+                //console.log(articulo);
                 return articulo
             } );
             setArticulosCarritos([...articulo]);
@@ -60,6 +61,7 @@ const VentaProvider = ({ children }) => {
         }else{
             //Agregar elemento al arreglo del carrito de compra 
             //utilizando Spread Operator
+            //console.log(articulo);
             setArticulosCarritos([...articulosCarritos, infArticulo])    
             setPrecioTotal(Number(productoFiltrado.precio) + Number(precioTotal))
         }

@@ -1,6 +1,11 @@
 import { NavLink } from "react-router-dom";
+import useVenta from "../../hooks/useVenta";
+import { formatearCantidad } from "../../helpers/formatearCantidad";
+
 const Producto = ({ producto }) => {
     const { _id, nombre, precio, stock, image } = producto;
+
+    const { añadirProducto } = useVenta()
     //console.log(producto);
     return (
         <div className="flex flex-col h-1/2 border rounded-lg w-60 bg-white hover:scale-105 overflow-hidden">
@@ -17,7 +22,7 @@ const Producto = ({ producto }) => {
                 </div>
                 <div className="my-3">
                     <p className="font-bold text-lg text-ellipsis overflow-hidden">
-                        Precio : <span className="font-normal block">${precio}</span>{" "}
+                        Precio : <span className="font-normal block">${formatearCantidad(precio)}</span>{" "}
                     </p>
                     <p className="font-bold text-lg">
                         Stock : <span className="font-normal">{stock}</span>{" "}
@@ -27,6 +32,7 @@ const Producto = ({ producto }) => {
             <button
                 type="button"
                 className="bg-sky-500 text-white p-2 uppercase font-medium w-full hover:bg-sky-700 transition-colors"
+                onClick={e => añadirProducto(_id)}
             >
                 Añadir al Carrito
             </button>
